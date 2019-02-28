@@ -3,7 +3,7 @@ from get_token import *
 
 
 class MyTestCase(unittest.TestCase):
-    """活动预约rwerewrwer"""
+    """活动预约"""
 
     def setUp(self):
         self.url = url + "/activity-h5/book"
