@@ -3,7 +3,7 @@ from get_token import *
 
 
 class MyTestCase(unittest.TestCase):
-    """我的消息-回复我的11"""
+    """我的消息-回复我的"""
 
     def setUp(self):
         self.url = url + "/msg/reply"
