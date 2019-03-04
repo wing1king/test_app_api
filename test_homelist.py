@@ -10,7 +10,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_1(self):
         datas['page'] = 1
-        datas['pageSize'] = '1'
+        datas['pageSize'] = '5'
         res = requests.post(url=self.url, data=datas)
         print(res.text)
         self.assertTrue(u"操作成功" in res.text)

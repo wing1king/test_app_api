@@ -1,4 +1,3 @@
-#coding:utf-8
 import unittest, time, requests
 from get_token import *
 
