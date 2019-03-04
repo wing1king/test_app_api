@@ -1,13 +1,12 @@
 #coding:utf-8
 import requests
 import datetime
+import pymysql
 
 # 开发环境
-# url = "http://192.168.143.21:8055/v1"
+url = "http://192.168.143.21:8055/v1"
 # 测试环境
-url = "http://10.72.12.43:8055/v1"
-
-
+# url = "http://10.72.12.43:8055/v1"
 
 
 def get_token():
@@ -42,29 +41,48 @@ datas = {'access_token': get_token(),
          }
 
 
+# 获取评论userid
 def get_userid():
-    """获取评论列表"""
-    datas['gameId'] = 1534162849059  # 相见言欢
-    datas['page'] = 2
-    datas['type'] = 1
-    res = requests.post(url=url + "/game/comment-list", data=datas)
-    return res.json()['data'][0]['userId']
+    db = pymysql.connect("10.72.12.44", "root", "root", "avg_0")
+    cursor = db.cursor()
+    sql = "SELECT * FROM avg_game_topic_0"
+    try:
+        cursor.execute(sql)
+        res = cursor.fetchone()
+        return res[2]
+    except:
+        print("error")
+    db.close()
 
 
+# 获取gameID
 def get_gameId():
-    res = requests.post(url=url + "/home/index", data=datas)
-    return res.json()["data"][1]["gameId"]
+    db = pymysql.connect("10.72.12.44", "root", "root", "avg_0")
+    cursor = db.cursor()
+    sql = "SELECT * FROM avg_game_topic_0"
+    try:
+        cursor.execute(sql)
+        res = cursor.fetchone()
+        return res[1]
+    except:
+        print("error")
+    db.close()
 
 
+# 获取话题ID
 def get_topicId():
-    """获取评论列表"""
-    datas['gameId'] = get_gameId()
-    datas['page'] = 1
-    datas['type'] = 2
-    res = requests.post(url=url + "/game/comment-list", data=datas)
-    return res.json()["data"][1]["topicId"]
+    db = pymysql.connect("10.72.12.44", "root", "root", "avg_0")
+    cursor = db.cursor()
+    sql = "SELECT * FROM avg_game_topic_0"
+    try:
+        cursor.execute(sql)
+        res = cursor.fetchone()
+        return res[0]
+    except:
+        print("error")
+    db.close()
 
-
+# 获取角色ID
 def get_roleId():
     datas['gameId'] = get_gameId()
     datas['page'] = 1

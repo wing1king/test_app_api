@@ -9,7 +9,7 @@ class MyTestCase(unittest.TestCase):
         self.url = url + "/book/save-data-db"
 
     def test_1(self):
-        datas['bookId'] = ''
+        datas['bookId'] = 1548763637327
         datas['cate'] = ''
         datas['data'] = {}
         res = requests.post(url=self.url, data=datas)

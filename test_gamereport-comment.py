@@ -22,7 +22,7 @@ class MyTestCase(unittest.TestCase):
         """举报原因：垃圾广告营销"""
         datas['reportUserId'] = get_userid()
         datas['gameId'] = get_gameId()
-        datas['topicId'] = 3
+        datas['topicId'] = get_topicId()
         datas['commentId'] = ''
         datas[key] = value
         res = requests.post(url=self.url, data=datas)
