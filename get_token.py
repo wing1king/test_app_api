@@ -2,6 +2,7 @@
 import requests
 import datetime
 import pymysql
+import pymongo
 
 # 开发环境
 url = "http://192.168.143.21:8055/v1"
@@ -55,7 +56,7 @@ def get_userid():
     db.close()
 
 
-# 获取gameID
+# 获取gameid
 def get_gameId():
     db = pymysql.connect("10.72.12.44", "root", "root", "avg_0")
     cursor = db.cursor()
@@ -69,7 +70,7 @@ def get_gameId():
     db.close()
 
 
-# 获取话题ID
+# 获取话题id
 def get_topicId():
     db = pymysql.connect("10.72.12.44", "root", "root", "avg_0")
     cursor = db.cursor()
@@ -82,13 +83,14 @@ def get_topicId():
         print("error")
     db.close()
 
-# 获取角色ID
+
+# 获取角色id
 def get_roleId():
-    datas['gameId'] = get_gameId()
-    datas['page'] = 1
-    datas['type'] = 2
-    res = requests.post(url=url + "/game/detail", data=datas)
-    return res.json()["data"]['gameData']['mainRoles'][0]['roleId']
+    client = pymongo.MongoClient('localhost', 27017)
+    mydb = client['avg']
+    mycol = mydb['games_role']
+    x = mycol.find_one()
+    return x["id"]
 
 
 def get_gsId():
@@ -125,6 +127,7 @@ def get_chapterId():
     return res.json()['data'][0]['id']
 
 
+# 获取时间戳
 def get_time():
     today = datetime.date.today()
     thistime = today.isoweekday()
