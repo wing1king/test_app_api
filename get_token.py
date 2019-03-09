@@ -1,8 +1,10 @@
-#coding:utf-8
 import requests
 import datetime
 import pymysql
 import pymongo
+import unittest
+import time
+from ddt import *
 
 # 开发环境
 url = "http://192.168.143.21:8055/v1"
@@ -139,6 +141,16 @@ def get_bug_id():
     datas['pageSize'] = 10
     res = requests.post(url=url + "/customer/question-list", data=datas)
     return res.json()['data'][0]['bug_id']
+
+
+# 获取book_id
+def get_book_id():
+    client = pymongo.MongoClient('localhost', 27017)
+    mydb = client['avg']
+    mycol = mydb['games']
+    x = mycol.find_one()
+    return x['id']
+
 
 
 

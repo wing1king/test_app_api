@@ -1,5 +1,3 @@
-#coding:utf-8
-import unittest, time, requests
 from get_token import *
 
 
@@ -11,7 +9,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_1(self):
         """关注用户"""
-        datas['followUserId'] = 1491806239
+        datas['followUserId'] = get_userid()
         datas['type'] = 1
         res = requests.post(url=self.url, data=datas)
         print(res.text)
@@ -19,7 +17,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_2(self):
         """取消关注用户"""
-        datas['followUserId'] = 1491806239
+        datas['followUserId'] = get_userid()
         datas['type'] = 2
         res = requests.post(url=self.url, data=datas)
         print(res.text)

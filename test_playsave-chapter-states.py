@@ -1,5 +1,3 @@
-#coding:utf-8
-import unittest, time, requests
 from get_token import *
 
 
@@ -10,8 +8,8 @@ class MyTestCase(unittest.TestCase):
         self.url = url + "/play/save-chapter-states"
 
     def test_1(self):
-        datas['gameId'] = 1533895574615
-        datas['chapterId'] = 1534402457381
+        datas['gameId'] = get_gameId()
+        datas['chapterId'] = get_chapterId()
         datas['state'] = '{"type":"chapter-save-state","savedEntityId":"1534402457381","chapterNumber":1,' \
                          '"currentState":"Playing","episodeId":"5b5185b575268acfa8255d65",' \
                          '"episodeSaveState":{"type":"episode-save-state","savedEntityId":"5b5185b575268acfa8255d65",' \

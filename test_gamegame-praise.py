@@ -1,7 +1,4 @@
-#coding:utf-8
-import unittest, time, requests
 from get_token import *
-from ddt import *
 
 
 class MyTestCase(unittest.TestCase):
@@ -16,7 +13,7 @@ class MyTestCase(unittest.TestCase):
         datas['type'] = 0
         res = requests.post(url=self.url, data=datas)
         print(res.text)
-        self.assertTrue(u"" in res.text)
+        self.assertTrue(u"操作成功" in res.text)
 
     def test_2(self):
         """取消点赞"""
@@ -24,7 +21,7 @@ class MyTestCase(unittest.TestCase):
         datas['type'] = 1
         res = requests.post(url=self.url, data=datas)
         print(res.text)
-        self.assertTrue(u"" in res.text)
+        self.assertTrue(u"操作成功" in res.text)
 
     def tearDown(self):
         time.sleep(1)

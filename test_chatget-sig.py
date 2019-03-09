@@ -1,5 +1,3 @@
-#coding:utf-8
-import unittest, time, requests
 from get_token import *
 
 
@@ -10,10 +8,10 @@ class MyTestCase(unittest.TestCase):
         self.url = url + "/chat/get-sig"
 
     def test_1(self):
-        datas['userId'] = 1491806239
+        datas['userId'] = get_userid()
         res = requests.post(url=self.url, data=datas)
         print(res.text)
-        self.assertTrue(u"" in res.text)
+        self.assertTrue(u"操作成功" in res.text)
 
     def tearDown(self):
         time.sleep(1)

@@ -1,4 +1,3 @@
-import unittest, time, requests
 from get_token import *
 
 
@@ -9,7 +8,7 @@ class MyTestCase(unittest.TestCase):
         self.url = url + "/book/get-data-db"
 
     def test_1(self):
-        datas['bookId'] = ''
+        datas['bookId'] = get_book_id()
         datas['cate'] = []
         res = requests.post(url=self.url, data=datas)
         print(res.text)

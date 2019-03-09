@@ -1,5 +1,3 @@
-#coding:utf-8
-import unittest, time, requests
 from get_token import *
 
 
@@ -10,7 +8,7 @@ class MyTestCase(unittest.TestCase):
         self.url = url + "/game/premium"
 
     def test_1(self):
-        datas['gameId'] = 1534162849059
+        datas['gameId'] = get_gameId()
         datas['chapterId'] = ''
         datas['optionType'] = ''
         datas['optionId'] = ''

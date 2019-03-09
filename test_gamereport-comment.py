@@ -1,6 +1,4 @@
-import unittest, time
 from get_token import *
-from ddt import *
 
 
 @ddt
