@@ -7,9 +7,9 @@ import time
 from ddt import *
 
 # 开发环境
-# url = "http://192.168.143.21:8055/v1"
+url = "http://192.168.143.21:8055/v1"
 # 测试环境
-url = "http://10.72.12.43:8055/v1"
+# url = "http://10.72.12.43:8055/v1"
 
 
 def get_token():
