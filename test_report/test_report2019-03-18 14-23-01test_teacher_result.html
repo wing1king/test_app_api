@@ -1,0 +1,1067 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>接口测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>接口测试报告</h1>
+<p class='attribute'><strong>Start Time:</strong> 2019-03-18 14:23:01</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:34.228000</p>
+<p class='attribute'><strong>Status:</strong> Pass 26</p>
+
+<p class='description'>测试用例执行情况：</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_customerquestion.MyTestCase: 反馈问题</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_1</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: {"code":0,"data":{"bug_id":"LD204264"},"msg":"操作成功","serverTime":1552890181,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_friendfollow.MyTestCase: 关注、取关用户</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',2)">Detail</a></td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_1: 关注用户</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
+        pass</a>
+
+    <div id='div_pt2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.1: {"code":0,"data":[],"msg":"操作成功","serverTime":1552890182,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_2: 取消关注用户</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.2')" >
+        pass</a>
+
+    <div id='div_pt2.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.2: {"code":0,"data":[],"msg":"操作成功","serverTime":1552890184,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_gamechapters.MyTestCase: 游戏章节列表</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c3',1)">Detail</a></td>
+</tr>
+
+<tr id='pt3.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_1</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.1')" >
+        pass</a>
+
+    <div id='div_pt3.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.1: {"code":0,"data":[{"gameId":"1534129524834","id":"1534412617057","desc":"照片中的少女","images":"http://192.168.4.124:930/wpk/0/image/9ec/93a/f87/9ec593a6f87254d89c9fc689c641cec2.jpg","title":"第一章","keyPrice":3,"diaPrice":1,"currency":"VCKEY","price":"0","chapterStates":{"lock":false,"currentState":1},"gameType":0,"screen":0,"initScene":"","createTime":1534412617,"updateTime":1546916023,"firstAudit":1546916007,"latelyAudit":1546916023,"downloadUrl":""},{"gameId":"1534129524834","id":"1534412637377","desc":"有人在这里","images":"http://192.168.4.124:930/wpk/0/image/4a9/d65/8e1/4a9fd65e8e14b60982ca72fd9f7b2bb2.jpg","title":"第二章","keyPrice":0,"diaPrice":0,"currency":"VCKEY","price":1,"chapterStates":{"lock":true,"currentState":0},"gameType":0,"screen":0,"initScene":"","createTime":1534412637,"updateTime":1537241798,"firstAudit":0,"latelyAudit":0,"downloadUrl":""},{"gameId":"1534129524834","id":"1534412654051","desc":"约定的樱花","images":"http://192.168.4.124:930/wpk/0/image/9bf/c70/bff/9bfac70cbff1f116afff29d98f3e26cd.jpg","title":"第三章","keyPrice":0,"diaPrice":0,"currency":"VCKEY","price":1,"chapterStates":{"lock":true,"currentState":0},"gameType":0,"screen":0,"initScene":"","createTime":1534412654,"updateTime":1537320688,"firstAudit":0,"latelyAudit":0,"downloadUrl":""},{"gameId":"1534129524834","id":"1534412680885","desc":"缝隙中伸出的手","images":"http://192.168.4.124:930/wpk/0/image/9a0/119/774/9a0f119d774198500684757b60edc3a5.jpg","title":"第四章","keyPrice":0,"diaPrice":0,"currency":"VCKEY","price":1,"chapterStates":{"lock":true,"currentState":0},"gameType":0,"screen":0,"initScene":"","createTime":1534412680,"updateTime":1537320690,"firstAudit":0,"latelyAudit":0,"downloadUrl":""},{"gameId":"1534129524834","id":"1534412710707","desc":"迷路的小女孩","images":"http://192.168.4.124:930/wpk/0/image/765/75a/5a0/765275ad5a0f2feb6fb5e5dedb87261d.jpg","title":"第五章","keyPrice":0,"diaPrice":0,"currency":"VCKEY","price":1,"chapterStates":{"lock":true,"currentState":0},"gameType":0,"screen":0,"initScene":"","createTime":1534412710,"updateTime":1537320692,"firstAudit":0,"latelyAudit":0,"downloadUrl":""},{"gameId":"1534129524834","id":"1534412781775","desc":"怪异揭示板","images":"http://192.168.4.124:930/wpk/0/image/742/42f/598/742e42ff598bca3b8a08567eadb782c6.jpg","title":"第六章","keyPrice":0,"diaPrice":0,"currency":"VCKEY","price":1,"chapterStates":{"lock":true,"currentState":0},"gameType":0,"screen":0,"initScene":"","createTime":1534412781,"updateTime":1537320693,"firstAudit":0,"latelyAudit":0,"downloadUrl":""},{"gameId":"1534129524834","id":"1534412733760","desc":"蓝色彼岸花","images":"http://192.168.4.124:930/wpk/0/image/afa/56b/78f/afa056bd78fe7de721816ae86a73c110.jpg","title":"第七章","keyPrice":0,"diaPrice":0,"currency":"VCKEY","price":1,"chapterStates":{"lock":true,"currentState":0},"gameType":0,"screen":0,"initScene":"","createTime":1534412733,"updateTime":1537320695,"firstAudit":0,"latelyAudit":0,"downloadUrl":""}],"msg":"操作成功","serverTime":1552890185,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_gamededult.MyTestCase: 扣费</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c4',1)">Detail</a></td>
+</tr>
+
+<tr id='pt4.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_1</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.1')" >
+        pass</a>
+
+    <div id='div_pt4.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.1: {"code":20000,"data":{"code":20000,"message":"参数缺失"},"msg":"参数缺失","serverTime":1552890186,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_gamedetail.MyTestCase: 游戏详情</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c5',1)">Detail</a></td>
+</tr>
+
+<tr id='pt5.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_1</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.1')" >
+        pass</a>
+
+    <div id='div_pt5.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.1: {"code":0,"data":{"gameData":{"name":"怪异揭示板与七重传言","desc":"以现在流行的「群聊」形式展现出来的，校园神秘恐怖故事！\n拥有各种只有智能手机才有的「群聊」独特系统，令你能用五感更加「真实」地去感受故事。\n3位登场人物最后所抵达的，「怪异」的真相究竟是什么…？\n在某所高中新闻部管理的揭示板中，隐藏着某个秘密。\n那就是所有写在揭示板上的「传言」都会「成真」，并且发展成「怪异」事件…\n写在揭示板上的「七个恐怖故事」究竟意味着什么…？\n※某些结局会出现较为猎奇的画面表现和涉及流血、残酷的文字描写。","author":"扑家吧","worksStatus":1,"weight":3,"images":[{"imgLargeUrl":"http://192.168.4.124:930/wpk/0/image/417/02c/80c/417702c580c13c79c05b74f3e0ae6a5b.jpg","imgSmallUrl":"http://192.168.4.124:930/wpk/0/image/417/02c/80c/417702c580c13c79c05b74f3e0ae6a5b.jpg","imgMiddleUrl":"http://192.168.4.124:930/wpk/0/image/417/02c/80c/417702c580c13c79c05b74f3e0ae6a5b.jpg"}],"words":233333,"recommendOrder":0,"onlineStatus":3,"userId":0,"collect":23,"gold":0,"popularity":19877,"praise":7,"comment":13,"topic":0,"updateTime":"2019/01/08 17:19","createTime":"2018/08/13 11:05","id":"1534129524834","previewImages":[{"imgLargeUrl":{"url":"http://192.168.4.124:930/wpk/0/image/223/557/7d3/223055707d348791a1f02d00186d2a0e.jpg","width":590,"height":630},"imgSmallUrl":{"url":"http://192.168.4.124:930/wpk/0/image/223/557/7d3/223055707d348791a1f02d00186d2a0e.jpg","width":590,"height":630},"imgMiddleUrl":{"url":"http://192.168.4.124:930/wpk/0/image/223/557/7d3/223055707d348791a1f02d00186d2a0e.jpg","width":590,"height":630}},{"imgLargeUrl":{"url":"http://192.168.4.124:930/wpk/0/image/3aa/789/3f8/3aa9789c3f856bba8d558de96085fede.jpg","width":590,"height":630},"imgSmallUrl":{"url":"http://192.168.4.124:930/wpk/0/image/3aa/789/3f8/3aa9789c3f856bba8d558de96085fede.jpg","width":590,"height":630},"imgMiddleUrl":{"url":"http://192.168.4.124:930/wpk/0/image/3aa/789/3f8/3aa9789c3f856bba8d558de96085fede.jpg","width":590,"height":630}},{"imgLargeUrl":{"url":"http://192.168.4.124:930/wpk/0/image/5eb/db5/ce1/5eb7db52ce161a637ef0691c3e75d769.jpg","width":590,"height":630},"imgSmallUrl":{"url":"http://192.168.4.124:930/wpk/0/image/5eb/db5/ce1/5eb7db52ce161a637ef0691c3e75d769.jpg","width":590,"height":630},"imgMiddleUrl":{"url":"http://192.168.4.124:930/wpk/0/image/5eb/db5/ce1/5eb7db52ce161a637ef0691c3e75d769.jpg","width":590,"height":630}},{"imgLargeUrl":{"url":"http://192.168.4.124:930/wpk/0/image/54f/5cc/b3b/54fc5cccb3b90039ed72497ad63e3928.jpg","width":590,"height":630},"imgSmallUrl":{"url":"http://192.168.4.124:930/wpk/0/image/54f/5cc/b3b/54fc5cccb3b90039ed72497ad63e3928.jpg","width":590,"height":630},"imgMiddleUrl":{"url":"http://192.168.4.124:930/wpk/0/image/54f/5cc/b3b/54fc5cccb3b90039ed72497ad63e3928.jpg","width":590,"height":630}}],"loadingImage":"http://192.168.4.124:930/wpk/0/image/da7/82e/e9e/da7b82e9e9e138ead3183bce19e12ded.png","shareInfo":{"title":"测试的","desc":"测试的","img":"https://xms-dev-1251001060.file.myqcloud.com/2018/12/1545987675890.jpeg","shareUrl":"https://dl-xms.gxpan.cn/2018/12/5c278aa39820a/index.html"},"raward":0,"reward":1730,"type":1,"gameType":0,"androidVer":"1.0.0","iosVer":"1.0.0","firstOnline":1546915993,"latelyOnline":1546916032,"listImages":"","score":0,"updatedInfo":"","updatedTo":"更新至第1章","publishOnline":0,"category":[{"id":"1","name":"工作"}],"module":[],"tags":[{"id":"4","name":"解谜"},{"id":"13","name":"轻小说"},{"id":"15","name":"校园"}],"title":"怪异揭示板与七重传言","gameId":"1534129524834","wordCount":233333,"createdAt":1534129524,"mainRoles":[{"roleId":"1534412184052","praise":6,"name":"紫乃","imgUrl":"http://192.168.4.124:930/wpk/0/image/304/b4f/d46/3044b4f7d465c339420811276b87f727.jpg","desc":"高三学生。新闻部部长。冷静沉着，可靠的大姐姐。","sound":"","praiseStatus":0},{"roleId":"1534163130640","praise":6,"name":"悠树","imgUrl":"http://192.168.4.124:930/wpk/0/image/46d/985/ce8/46d49853ce8a3dc848ede243e5940296.jpg","desc":"高二学生。新闻部所属。稍微有点弱气。","sound":"","praiseStatus":0},{"roleId":"1534412141406","praise":7,"name":"茜","imgUrl":"http://192.168.4.124:930/wpk/0/image/0c0/3c2/213/0c093c2121380e277d9174b4690fb914.jpg","desc":"高二学生。新闻部所属。阳光开朗，但是又有点令人遗憾。","sound":"","praiseStatus":0}]},"userData":{"collectionStatus":0,"reward":1570,"praise":0,"playTotalTime":0,"playing":"1534412617057","userId":2147483641}},"msg":"操作成功","serverTime":1552890187,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_gamepremium.MyTestCase: Premium选项扣费</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c6',1)">Detail</a></td>
+</tr>
+
+<tr id='pt6.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_1</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.1')" >
+        pass</a>
+
+    <div id='div_pt6.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.1: {"code":1008,"data":{"code":1008,"message":"参数错误"},"msg":"参数错误","serverTime":1552890188,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_gamereward.MyTestCase: 打赏游戏</td>
+    <td>6</td>
+    <td>6</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c7',6)">Detail</a></td>
+</tr>
+
+<tr id='pt7.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_1_1___1534129524834____2____1__: tuple() -> empty tuple</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.1')" >
+        pass</a>
+
+    <div id='div_pt7.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.1: {"code":0,"data":[],"msg":"操作成功","serverTime":1552890191,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_1_2___1534129524834____4____2__: tuple() -> empty tuple</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.2')" >
+        pass</a>
+
+    <div id='div_pt7.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.2: {"code":0,"data":[],"msg":"操作成功","serverTime":1552890192,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_1_3___1534129524834____6____3__: tuple() -> empty tuple</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.3')" >
+        pass</a>
+
+    <div id='div_pt7.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.3: {"code":0,"data":[],"msg":"操作成功","serverTime":1552890194,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_1_4___1534129524834____8____4__: tuple() -> empty tuple</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.4')" >
+        pass</a>
+
+    <div id='div_pt7.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.4: {"code":0,"data":[],"msg":"操作成功","serverTime":1552890195,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_1_5___1534129524834____10____5__: tuple() -> empty tuple</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.5')" >
+        pass</a>
+
+    <div id='div_pt7.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.5: {"code":0,"data":[],"msg":"操作成功","serverTime":1552890196,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_1_6___1534129524834____12____6__: tuple() -> empty tuple</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.6')" >
+        pass</a>
+
+    <div id='div_pt7.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.6: {"code":0,"data":[],"msg":"操作成功","serverTime":1552890199,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_homebanner.MyTestCase: Banner</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c8',1)">Detail</a></td>
+</tr>
+
+<tr id='pt8.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_1</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt8.1')" >
+        pass</a>
+
+    <div id='div_pt8.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt8.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt8.1: {"code":0,"data":{"count":3,"data":[{"title":"江小白","desc":"","images":"https://xms-dev-1251001060.file.myqcloud.com/2018/12/1545125073026.png","url":"","status":"1","sort":"1","bannerType":"2","gameId":"1534129524834"},{"title":"相见言欢","desc":"相见言欢","images":"https://xms-dev-1251001060.file.myqcloud.com/2018/12/1545125123438.png","url":"","status":"1","sort":"2","bannerType":"2","gameId":"1534162849059"},{"title":"艾比","desc":"","images":"https://xms-dev-1251001060.file.myqcloud.com/2018/12/1545125097079.png","url":"http://dramabook.uu.cc/","status":"1","sort":"3","bannerType":"1","gameId":""}]},"msg":"操作成功","serverTime":1552890200,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_homeindex.MyTestCase: 首页</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c9',1)">Detail</a></td>
+</tr>
+
+<tr id='pt9.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_1</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt9.1')" >
+        pass</a>
+
+    <div id='div_pt9.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt9.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt9.1: {"code":0,"data":[{"title":"下载测试江小白","gameId":"1534130295020","desc":"这是个悲伤的故事！这是个悲伤的故事！这是个悲伤的故事！","popularity":268508,"praise":25,"comment":41,"weight":12,"gameType":1,"score":0,"updatedTo":"更新至第1章","topic":[{"id":"14","user_id":"2147483641","content":"1刷了，准备在看一遍","praise_count":"3","comment_count":"2","created":"2018-11-23 10:56:03","nick":"二次元","avatar":"http://abc-1253117418.cos.ap-guangzhou.myqcloud.com/ac007e80bf5d092c236d32286bba8dd553c6b322.png"}],"androidVer":"1.0.0","iosVer":"1.0.0","tags":[{"id":"3","name":"霸道总裁"}],"category":[{"id":"2","name":"不工作"}],"images":[{"imgLargeUrl":"https://xms-dev-1251001060.file.myqcloud.com/2018/12/1544409699410.png","imgSmallUrl":"https://xms-dev-1251001060.file.myqcloud.com/2018/12/1544409699410.png","imgMiddleUrl":"https://xms-dev-1251001060.file.myqcloud.com/2018/12/1544409699410.png"}],"worksStatus":"连载中","createTime":"2018/08/13 11:18","updateTime":"2019/03/11 14:44","orderTime":1552286652,"userData":{"collectionStatus":0,"reward":0,"praise":0,"playTotalTime":0,"playing":0}},{"title":"天堂假日不工作","gameId":"1547624753653","desc":"Android ios IP07","popularity":9122,"praise":1,"comment":17,"weight":10,"gameType":1,"score":"","updatedTo":"","topic":[],"androidVer":"1.0.0","iosVer":"1.0.0","tags":[],"category":[],"images":[{"imgLargeUrl":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1547624739820.png","imgSmallUrl":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1547624739820.png","imgMiddleUrl":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1547624739820.png"}],"worksStatus":"连载中","createTime":"2019/01/16 15:45","updateTime":"2019/03/12 20:26","orderTime":1552393584,"userData":{"collectionStatus":0,"reward":0,"praise":0,"playTotalTime":0,"playing":0}},{"id":"163","key":"3","title":"1","desc":"我是一个广告","images":[{"imgLargeUrl":"https://xms-dev-1251001060.file.myqcloud.com/2019/02/1550738145845.jpeg","imgSmallUrl":"https://xms-dev-1251001060.file.myqcloud.com/2019/02/1550738145845.jpeg","imgMiddleUrl":"https://xms-dev-1251001060.file.myqcloud.com/2019/02/1550738145845.jpeg"}],"url":"http://www.hao123.com","location":"3","isAdv":1},{"id":"171","key":"4","title":"周一活动","desc":"福利签到必得到星尘，快去个人中心签到吧！  加入Q群：877513631(会演粉丝群)，get最新资讯，结交同好，更有红包派发中！","images":[{"imgLargeUrl":"https://xms-dev-1251001060.file.myqcloud.com/2019/03/1552055994074.jpeg","imgSmallUrl":"https://xms-dev-1251001060.file.myqcloud.com/2019/03/1552055994074.jpeg","imgMiddleUrl":"https://xms-dev-1251001060.file.myqcloud.com/2019/03/1552055994074.jpeg"}],"url":"https://xms-dev-1251001060.file.myqcloud.com/2019/03/5c83763bd27e5/index.html","location":"4","isAdv":1},{"title":"IP06(android ios ready)","gameId":"1548240546829","desc":"ip06","popularity":4261,"praise":1,"comment":0,"weight":10,"gameType":1,"score":"","updatedTo":"","topic":[],"androidVer":"1.0.0","iosVer":"1.0.0","tags":[],"category":[],"images":[{"imgLargeUrl":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1548240539743.jpeg","imgSmallUrl":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1548240539743.jpeg","imgMiddleUrl":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1548240539743.jpeg"}],"worksStatus":"连载中","createTime":"2019/01/23 18:49","updateTime":"2019/01/29 17:22","orderTime":1548753759,"userData":{"collectionStatus":0,"reward":0,"praise":1,"playTotalTime":0,"playing":0}},{"title":"IP12(android ios ready)","gameId":"1548658248154","desc":"IP12(android ios ready)","popularity":207,"praise":0,"comment":0,"weight":10,"gameType":1,"score":"","updatedTo":"","topic":[],"androidVer":"1.0.2","iosVer":"1.1.5","tags":[],"category":[],"images":[{"imgLargeUrl":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1548658239419.png","imgSmallUrl":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1548658239419.png","imgMiddleUrl":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1548658239419.png"}],"worksStatus":"连载中","createTime":"2019/01/28 14:50","updateTime":"2019/01/28 15:42","orderTime":1548661360,"userData":{"collectionStatus":0,"reward":0,"praise":0,"playTotalTime":0,"playing":0}},{"title":"相见言欢","gameId":"1534162849059","desc":"订婚前夜，姐姐叛逆离家，她沦为豪门联姻的牺牲品；\n\n而他娶妻，只是为了完成爷爷的遗愿，娶谁都不重要。\n\n婚后，画风突变——“小哑巴，原来你这么坏？喜欢偷偷摸摸的，嗯？”\n\n她面红耳赤，“我才没有，明明是你……唔……”","popularity":142529,"praise":9,"comment":18,"weight":10,"gameType":0,"score":0,"updatedTo":"更新至第1章","topic":[{"id":"212","user_id":"2249493917","content":"试试哈","praise_count":"1","comment_count":"1","created":"2018-12-20 17:32:24","nick":"微信账号","avatar":"http://abc-1253117418.cos.ap-guangzhou.myqcloud.com/7d7b89716b17fc3e75849a95114e7f51398319f4.png"}],"androidVer":"1.0.0","iosVer":"1.0.0","tags":[{"id":"3","name":"霸道总裁"},{"id":"7","name":"现代"},{"id":"8","name":"恋爱"},{"id":"10","name":"豪门联姻"}],"category":[{"id":"2","name":"不工作"}],"images":[{"imgLargeUrl":"https://xms-dev-1251001060.cos.ap-guangzhou.myqcloud.com/2018/10/1540446110436.jpeg","imgSmallUrl":"https://xms-dev-1251001060.cos.ap-guangzhou.myqcloud.com/2018/10/1540446110436.jpeg","imgMiddleUrl":"https://xms-dev-1251001060.cos.ap-guangzhou.myqcloud.com/2018/10/1540446110436.jpeg"}],"worksStatus":"连载中","createTime":"2018/08/13 20:20","updateTime":"2019/01/11 11:10","orderTime":1547176236,"userData":{"collectionStatus":0,"reward":0,"praise":0,"playTotalTime":0,"playing":0}},{"title":"我的女友在被追赶","gameId":"1536817660145","desc":"手机的另一边，你的女友正被人追赶。\n只需短短十分钟即可享受到乐趣的玩法！\n采用最流行的短信式玩法+恐怖气氛x文字冒险！\n模拟聊天软件，通过不断回复推进剧情。\n点击屏幕收取对方的回复，并通过选项来决定自己的回复。\n不同的选择，将带来不同的结局。\n全新的文字冒险体验，仿佛与真人女友交流一样，女友的命运掌握在你的手中！","popularity":7259,"praise":9,"comment":8,"weight":4,"gameType":0,"score":0,"updatedTo":"更新至第1章","topic":[{"id":"22","user_id":"2147483641","content":"哎呦，不错哦","praise_count":"1","comment_count":"1","created":"2018-11-12 20:35:50","nick":"二次元","avatar":"http://abc-1253117418.cos.ap-guangzhou.myqcloud.com/ac007e80bf5d092c236d32286bba8dd553c6b322.png"}],"androidVer":"1.0.0","iosVer":"1.0.0","tags":[{"id":"4","name":"解谜"}],"category":[{"id":"1","name":"工作"}],"images":[{"imgLargeUrl":"https://xms-dev-1251001060.file.myqcloud.com/2018/12/1545987789862.jpeg","imgSmallUrl":"https://xms-dev-1251001060.file.myqcloud.com/2018/12/1545987789862.jpeg","imgMiddleUrl":"https://xms-dev-1251001060.file.myqcloud.com/2018/12/1545987789862.jpeg"}],"worksStatus":"连载中","createTime":"2018/09/13 13:47","updateTime":"2019/01/08 17:19","orderTime":1546939187,"userData":{"collectionStatus":0,"reward":0,"praise":0,"playTotalTime":2,"playing":"1536817712210"}},{"title":"怪异揭示板与七重传言","gameId":"1534129524834","desc":"以现在流行的「群聊」形式展现出来的，校园神秘恐怖故事！\n拥有各种只有智能手机才有的「群聊」独特系统，令你能用五感更加「真实」地去感受故事。\n3位登场人物最后所抵达的，「怪异」的真相究竟是什么…？\n在某所高中新闻部管理的揭示板中，隐藏着某个秘密。\n那就是所有写在揭示板上的「传言」都会「成真」，并且发展成「怪异」事件…\n写在揭示板上的「七个恐怖故事」究竟意味着什么…？\n※某些结局会出现较为猎奇的画面表现和涉及流血、残酷的文字描写。","popularity":19883,"praise":7,"comment":13,"weight":3,"gameType":0,"score":0,"updatedTo":"更新至第1章","topic":[{"id":"11","user_id":"2264977450","content":"我觉得不错👍","praise_count":"1","comment_count":"0","created":"2018-11-09 14:36:32","nick":"player7450","avatar":"https://xms-dev-1251001060.file.myqcloud.com/14.png"}],"androidVer":"1.0.0","iosVer":"1.0.0","tags":[{"id":"4","name":"解谜"},{"id":"13","name":"轻小说"},{"id":"15","name":"校园"}],"category":[{"id":"1","name":"工作"}],"images":[{"imgLargeUrl":"http://192.168.4.124:930/wpk/0/image/417/02c/80c/417702c580c13c79c05b74f3e0ae6a5b.jpg","imgSmallUrl":"http://192.168.4.124:930/wpk/0/image/417/02c/80c/417702c580c13c79c05b74f3e0ae6a5b.jpg","imgMiddleUrl":"http://192.168.4.124:930/wpk/0/image/417/02c/80c/417702c580c13c79c05b74f3e0ae6a5b.jpg"}],"worksStatus":"已完结","createTime":"2018/08/13 11:05","updateTime":"2019/01/08 17:19","orderTime":1546939159,"userData":{"collectionStatus":0,"reward":1612,"praise":0,"playTotalTime":0,"playing":"1534412617057"}},{"title":"艾比~交流障碍的我所选择的未来","gameId":"1533895574615","desc":"因为某个契机而变成了交流障碍者的天才黑客少年「空井和人」。他应募了某个应用程序开发选拔赛，开始着手开发用于支援人际交流的AI。这个应用程序被选拔赛的主办单位看中，某位女性造访了他的家……\r\n以轻小说游戏的形式为大家带来的青春科幻故事！是交流障碍的主人公和有些天然的大姐姐，经历各种各样的事逐渐成长起来的故事。有笑有泪，还有硬派的科幻要素？神秘的PEACE计划是什么…？\r\n未来的理想又是什么样的…？\r\n请千万不要错过，这2+1的登场人物所选择的「未来」结局！！","popularity":33642,"praise":14,"comment":0,"weight":2,"gameType":0,"score":0,"updatedTo":"更新至第1章","topic":[],"androidVer":"1.0.0","iosVer":"1.0.0","tags":[{"id":"13","name":"轻小说"},{"id":"14","name":"科幻"}],"category":[{"id":"1","name":"工作"}],"images":[{"imgLargeUrl":"http://192.168.4.124:930/wpk/0/image/137/c11/d9c/1379c114d9cf4058dbab824f9790ccab.jpg","imgSmallUrl":"http://192.168.4.124:930/wpk/0/image/137/c11/d9c/1379c114d9cf4058dbab824f9790ccab.jpg","imgMiddleUrl":"http://192.168.4.124:930/wpk/0/image/137/c11/d9c/1379c114d9cf4058dbab824f9790ccab.jpg"}],"worksStatus":"连载中","createTime":"2018/08/10 18:06","updateTime":"2019/01/08 17:19","orderTime":1546939192,"userData":{"collectionStatus":0,"reward":0,"praise":0,"playTotalTime":0,"playing":"1534402457381"}},{"title":"狼与红","gameId":"1547640094832","desc":"IP08","popularity":9064,"praise":0,"comment":0,"weight":1,"gameType":1,"score":"","updatedTo":"","topic":[],"androidVer":"1.0.0","iosVer":"1.0.0","tags":[],"category":[],"images":[{"imgLargeUrl":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1547640085334.jpeg","imgSmallUrl":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1547640085334.jpeg","imgMiddleUrl":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1547640085334.jpeg"}],"worksStatus":"连载中","createTime":"2019/01/16 20:01","updateTime":"2019/02/28 15:33","orderTime":1551339213,"userData":{"collectionStatus":0,"reward":0,"praise":0,"playTotalTime":0,"playing":0}},{"title":"阅读付费","gameId":"1538994550702","desc":"该作品用于阅读付费测试，请勿删除","popularity":20179,"praise":3,"comment":5,"weight":1,"gameType":0,"score":0,"updatedTo":"更新至第1章","topic":[],"androidVer":"1.0.0","iosVer":"1.0.0","tags":[{"id":"13","name":"轻小说"}],"category":[{"id":"1","name":"工作"}],"images":[{"imgLargeUrl":"https://xms-dev-1251001060.cos.ap-guangzhou.myqcloud.com/2018/10/1539250131340.jpeg","imgSmallUrl":"https://xms-dev-1251001060.cos.ap-guangzhou.myqcloud.com/2018/10/1539250131340.jpeg","imgMiddleUrl":"https://xms-dev-1251001060.cos.ap-guangzhou.myqcloud.com/2018/10/1539250131340.jpeg"}],"worksStatus":"连载中","createTime":"2018/10/08 18:29","updateTime":"2019/01/21 15:08","orderTime":1548054499,"userData":{"collectionStatus":0,"reward":0,"praise":0,"playTotalTime":0,"playing":0}}],"msg":"操作成功","serverTime":1552890202,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_homelist.MyTestCase: 新版首页</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c10',1)">Detail</a></td>
+</tr>
+
+<tr id='pt10.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_1</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt10.1')" >
+        pass</a>
+
+    <div id='div_pt10.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt10.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt10.1: {"code":0,"data":[{"type":"1","moduleId":"10","title":"banner","bgImg":"","data":[{"type":"2","url":"","gameId":"0","name":"banner","desc":"","image":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1547003688070.jpeg"},{"type":"2","url":"","gameId":"0","name":"banner","desc":"","image":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1547004189002.jpeg"},{"type":"2","url":"https://xms-dev-1251001060.file.myqcloud.com/2019/03/5c8275971295d/index.html","gameId":"0","name":"banner","desc":"新活动曝光活动","image":"https://xms-dev-1251001060.file.myqcloud.com/2019/03/1552052769681.jpeg"}]},{"type":"2","moduleId":"2","title":"最近更新","bgImg":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1547002379002.jpeg","data":[{"type":"1","url":"","gameId":"1538994550702","name":"阅读付费","desc":"该作品用于阅读付费测试，请勿删除","image":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1547003846573.jpeg","gameType":"book","androidVer":"1.0.0","iosVer":"1.0.0","score":0,"updatedTo":"更新至第1章","userData":{"collectionStatus":0,"reward":0,"praise":0,"playTotalTime":0,"playing":0}},{"type":"1","url":"","gameId":"1534130295020","name":"下载测试江小白","desc":"这是个悲伤的故事！这是个悲伤的故事！这是个悲伤的故事！","image":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1547003817220.jpeg","gameType":"fungus1","androidVer":"1.0.0","iosVer":"1.0.0","score":0,"updatedTo":"更新至第1章","userData":{"collectionStatus":0,"reward":0,"praise":0,"playTotalTime":0,"playing":0}}]},{"type":"3","moduleId":"4","title":"恋爱","bgImg":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1547003528365.png","data":[{"type":"1","url":"","gameId":"1534129524834","name":"怪异揭示板与七重传言","desc":"以现在流行的「群聊」形式展现出来的，校园神秘恐怖故事！\n拥有各种只有智能手机才有的「群聊」独特系统，令你能用五感更加「真实」地去感受故事。\n3位登场人物最后所抵达的，「怪异」的真相究竟是什么…？\n在某所高中新闻部管理的揭示板中，隐藏着某个秘密。\n那就是所有写在揭示板上的「传言」都会「成真」，并且发展成「怪异」事件…\n写在揭示板上的「七个恐怖故事」究竟意味着什么…？\n※某些结局会出现较为猎奇的画面表现和涉及流血、残酷的文字描写。","image":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1547005220934.jpeg","gameType":"book","androidVer":"1.0.0","iosVer":"1.0.0","score":0,"updatedTo":"更新至第1章","userData":{"collectionStatus":0,"reward":1612,"praise":0,"playTotalTime":0,"playing":"1534412617057"}},{"type":"1","url":"","gameId":"1534130295020","name":"下载测试江小白","desc":"这是个悲伤的故事！这是个悲伤的故事！这是个悲伤的故事！","image":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1547003998459.jpeg","gameType":"fungus1","androidVer":"1.0.0","iosVer":"1.0.0","score":0,"updatedTo":"更新至第1章","userData":{"collectionStatus":0,"reward":0,"praise":0,"playTotalTime":0,"playing":0}},{"type":"1","url":"","gameId":"1534162849059","name":"相见言欢","desc":"订婚前夜，姐姐叛逆离家，她沦为豪门联姻的牺牲品；\n\n而他娶妻，只是为了完成爷爷的遗愿，娶谁都不重要。\n\n婚后，画风突变——“小哑巴，原来你这么坏？喜欢偷偷摸摸的，嗯？”\n\n她面红耳赤，“我才没有，明明是你……唔……”","image":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1547003948347.jpeg","gameType":"book","androidVer":"1.0.0","iosVer":"1.0.0","score":0,"updatedTo":"更新至第1章","userData":{"collectionStatus":0,"reward":0,"praise":0,"playTotalTime":0,"playing":0}}]},{"type":"3","moduleId":"5","title":"古风","bgImg":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1547003586743.png","data":[{"type":"1","url":"","gameId":"1534129524834","name":"怪异揭示板与七重传言","desc":"以现在流行的「群聊」形式展现出来的，校园神秘恐怖故事！\n拥有各种只有智能手机才有的「群聊」独特系统，令你能用五感更加「真实」地去感受故事。\n3位登场人物最后所抵达的，「怪异」的真相究竟是什么…？\n在某所高中新闻部管理的揭示板中，隐藏着某个秘密。\n那就是所有写在揭示板上的「传言」都会「成真」，并且发展成「怪异」事件…\n写在揭示板上的「七个恐怖故事」究竟意味着什么…？\n※某些结局会出现较为猎奇的画面表现和涉及流血、残酷的文字描写。","image":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1547005248650.jpeg","gameType":"book","androidVer":"1.0.0","iosVer":"1.0.0","score":0,"updatedTo":"更新至第1章","userData":{"collectionStatus":0,"reward":1612,"praise":0,"playTotalTime":0,"playing":"1534412617057"}},{"type":"1","url":"","gameId":"1547640094832","name":"狼与红","desc":"IP08","image":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1547005936990.jpeg","updatedTo":"","score":"","gameType":"fungus2","androidVer":"1.0.0","iosVer":"1.0.0","userData":{"collectionStatus":0,"reward":0,"praise":0,"playTotalTime":0,"playing":0}},{"type":"1","url":"www.baidu.com","gameId":"1548658248154","name":"IP12(android ios ready)","desc":"IP12(android ios ready)","image":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1547004049165.jpeg","updatedTo":"","score":"","gameType":"fungus2","androidVer":"1.0.2","iosVer":"1.1.5","userData":{"collectionStatus":0,"reward":0,"praise":0,"playTotalTime":0,"playing":0}},{"type":"1","url":"www.baidu.com","gameId":"1547624753653","name":"天堂假日不工作","desc":"Android ios IP07","image":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1547004019226.jpeg","updatedTo":"","score":"","gameType":"fungus2","androidVer":"1.0.0","iosVer":"1.0.0","userData":{"collectionStatus":0,"reward":0,"praise":0,"playTotalTime":0,"playing":0}}]},{"type":"3","moduleId":"8","title":"都市","bgImg":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1547003617141.png","data":[{"type":"1","url":"","gameId":"1534162849059","name":"相见言欢","desc":"订婚前夜，姐姐叛逆离家，她沦为豪门联姻的牺牲品；\n\n而他娶妻，只是为了完成爷爷的遗愿，娶谁都不重要。\n\n婚后，画风突变——“小哑巴，原来你这么坏？喜欢偷偷摸摸的，嗯？”\n\n她面红耳赤，“我才没有，明明是你……唔……”","image":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1547005989177.jpeg","gameType":"book","androidVer":"1.0.0","iosVer":"1.0.0","score":0,"updatedTo":"更新至第1章","userData":{"collectionStatus":0,"reward":0,"praise":0,"playTotalTime":0,"playing":0}},{"type":"1","url":"","gameId":"1547624753653","name":"天堂假日不工作","desc":"Android ios IP07","image":"https://xms-dev-1251001060.file.myqcloud.com/2019/01/1547004306842.jpeg","updatedTo":"","score":"","gameType":"fungus2","androidVer":"1.0.0","iosVer":"1.0.0","userData":{"collectionStatus":0,"reward":0,"praise":0,"playTotalTime":0,"playing":0}}]}],"msg":"操作成功","serverTime":1552890203,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_homesearch.MyTestCase: 搜索</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c11',1)">Detail</a></td>
+</tr>
+
+<tr id='pt11.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_1</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt11.1')" >
+        pass</a>
+
+    <div id='div_pt11.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt11.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt11.1: {"code":0,"data":[{"title":"怪异揭示板与七重传言","gameId":"1534129524834","desc":"以现在流行的「群聊」形式展现出来的，校园神秘恐怖故事！\n拥有各种只有智能手机才有的「群聊」独特系统，令你能用五感更加「真实」地去感受故事。\n3位登场人物最后所抵达的，「怪异」的真相究竟是什么…？\n在某所高中新闻部管理的揭示板中，隐藏着某个秘密。\n那就是所有写在揭示板上的「传言」都会「成真」，并且发展成「怪异」事件…\n写在揭示板上的「七个恐怖故事」究竟意味着什么…？\n※某些结局会出现较为猎奇的画面表现和涉及流血、残酷的文字描写。","popularity":19883,"praise":7,"comment":13,"weight":3,"gameType":0,"score":0,"updatedTo":"更新至第1章","topic":[{"id":"11","user_id":"2264977450","content":"我觉得不错👍","praise_count":"1","comment_count":"0","created":"2018-11-09 14:36:32","nick":"player7450","avatar":"https://xms-dev-1251001060.file.myqcloud.com/14.png"}],"androidVer":"1.0.0","iosVer":"1.0.0","tags":[{"id":"4","name":"解谜"},{"id":"13","name":"轻小说"},{"id":"15","name":"校园"}],"category":[{"id":"1","name":"工作"}],"images":[{"imgLargeUrl":"http://192.168.4.124:930/wpk/0/image/417/02c/80c/417702c580c13c79c05b74f3e0ae6a5b.jpg","imgSmallUrl":"http://192.168.4.124:930/wpk/0/image/417/02c/80c/417702c580c13c79c05b74f3e0ae6a5b.jpg","imgMiddleUrl":"http://192.168.4.124:930/wpk/0/image/417/02c/80c/417702c580c13c79c05b74f3e0ae6a5b.jpg"}],"worksStatus":"已完结","createTime":"2018/08/13 11:05","updateTime":"2019/01/08 17:19","orderTime":1546939159,"userData":{"collectionStatus":0,"reward":1612,"praise":0,"playTotalTime":0,"playing":"1534412617057"}}],"msg":"操作成功","serverTime":1552890204,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_msgreply.MyTestCase: 我的消息-回复我的</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c12',1)">Detail</a></td>
+</tr>
+
+<tr id='pt12.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_1</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt12.1')" >
+        pass</a>
+
+    <div id='div_pt12.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt12.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt12.1: {"code":0,"data":[{"reportId":"263","sourceUserId":"2288953666","sourceNickName":"纯真的雪碧","sourceAvatar":"https://xms-dev-1251001060.file.myqcloud.com/02.png?2019012308","type":"5","content":"我","contentId":"22","gameId":"1536817660145","topicId":"22","status":0,"created":1550727946},{"reportId":"269","sourceUserId":"2265001047","sourceNickName":"player1047","sourceAvatar":"https://xms-dev-1251001060.file.myqcloud.com/16.png","type":"7","content":"1刷了，准备在看一遍","contentId":"14","gameId":"1534130295020","topicId":"14","status":0,"created":1545128855},{"reportId":"269","sourceUserId":"1491806239","sourceNickName":"愉快的泥猴桃","sourceAvatar":"https://xms-dev-1251001060.file.myqcloud.com/06.png?2019012104","type":"7","content":"1刷了，准备在看一遍","contentId":"14","gameId":"1534130295020","topicId":"14","status":0,"created":1545035671},{"reportId":"269","sourceUserId":"2272645784","sourceNickName":"player5784","sourceAvatar":"https://xms-dev-1251001060.file.myqcloud.com/18.png","type":"7","content":"1刷了，准备在看一遍","contentId":"14","gameId":"1534130295020","topicId":"14","status":0,"created":1545031527},{"reportId":"269","sourceUserId":"1491806239","sourceNickName":"愉快的泥猴桃","sourceAvatar":"https://xms-dev-1251001060.file.myqcloud.com/06.png?2019012104","type":"7","content":"1刷了，准备在看一遍","contentId":"14","gameId":"1534130295020","topicId":"14","status":0,"created":1545031525},{"reportId":"269","sourceUserId":"1493818010","sourceNickName":"1868033512","sourceAvatar":"http://xms-dev-1251001060.cos.ap-guangzhou.myqcloud.com/14938180101539587849153.png","type":"7","content":"1刷了，准备在看一遍","contentId":"14","gameId":"1534130295020","topicId":"14","status":0,"created":1544702854},{"reportId":"269","sourceUserId":"2272645784","sourceNickName":"player5784","sourceAvatar":"https://xms-dev-1251001060.file.myqcloud.com/18.png","type":"7","content":"1刷了，准备在看一遍","contentId":"14","gameId":"1534130295020","topicId":"14","status":0,"created":1544702851},{"reportId":"269","sourceUserId":"1493818010","sourceNickName":"1868033512","sourceAvatar":"http://xms-dev-1251001060.cos.ap-guangzhou.myqcloud.com/14938180101539587849153.png","type":"7","content":"1刷了，准备在看一遍","contentId":"14","gameId":"1534130295020","topicId":"14","status":0,"created":1544694661},{"reportId":"269","sourceUserId":"548058465","sourceNickName":"player0584","sourceAvatar":"http://xms-dev-1251001060.cos.ap-guangzhou.myqcloud.com/5480584651546086716786.png","type":"5","content":"fgg","contentId":"14","gameId":"1534130295020","topicId":"14","status":0,"created":1544433619},{"reportId":"269","sourceUserId":"548058465","sourceNickName":"player0584","sourceAvatar":"http://xms-dev-1251001060.cos.ap-guangzhou.myqcloud.com/5480584651546086716786.png","type":"5","content":"ffh","contentId":"14","gameId":"1534130295020","topicId":"14","status":0,"created":1544433615}],"msg":"操作成功","serverTime":1552890205,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_msgsystem.MyTestCase: 我的消息-系统消息</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c13',1)">Detail</a></td>
+</tr>
+
+<tr id='pt13.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_1</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt13.1')" >
+        pass</a>
+
+    <div id='div_pt13.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt13.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt13.1: {"code":0,"data":{"data":[{"id":"187","content":"11111","updated":1551941206,"msgType":"","key":"","status":0,"contentType":"1","date":201903},{"id":"183","content":"test2","updated":1551790003,"msgType":"","key":"","status":0,"contentType":"1","date":201903},{"id":"40","content":"test1","updated":1551790031,"msgType":"","key":"","status":0,"contentType":"1","date":201902}],"date":"201812","offset":7},"msg":"操作成功","serverTime":1552890206,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_payexchange.MyTestCase: 兑换接口</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c14',1)">Detail</a></td>
+</tr>
+
+<tr id='pt14.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_1</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt14.1')" >
+        pass</a>
+
+    <div id='div_pt14.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt14.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt14.1: {"code":0,"data":{"":""},"msg":"操作成功","serverTime":1552890207,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_paygift.MyTestCase: 充值中心配置</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c15',1)">Detail</a></td>
+</tr>
+
+<tr id='pt15.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_1</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt15.1')" >
+        pass</a>
+
+    <div id='div_pt15.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt15.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt15.1: {"code":0,"data":[{"id":"6","price":"1","goods":{"number":10,"type":"VCDIA","number1":0,"type1":"VCKEY","productId":"com.idreamsky.avg.diamond.10"},"icon":null},{"id":"9","price":"6","goods":{"number":60,"type":"VCDIA","number1":0,"type1":"VCKEY","productId":"com.idreamsky.avg.diamond.60"},"icon":null},{"id":"10","price":"12","goods":{"number":120,"type":"VCDIA","number1":0,"type1":"VCKEY","productId":"com.idreamsky.avg.diamond.120"},"icon":null},{"id":"11","price":"30","goods":{"number":300,"type":"VCDIA","number1":0,"type1":"VCKEY","productId":"com.idreamsky.avg.diamond.300"},"icon":null}],"msg":"操作成功","serverTime":1552890208,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_sharegame.MyTestCase: 分享奖励</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c16',1)">Detail</a></td>
+</tr>
+
+<tr id='pt16.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_1</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt16.1')" >
+        pass</a>
+
+    <div id='div_pt16.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt16.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt16.1: {"code":0,"data":{"VCKEY":"1","VCDIA":"0"},"msg":"操作成功","serverTime":1552890209,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_usercollect.MyTestCase: 我的游戏收藏</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c17',1)">Detail</a></td>
+</tr>
+
+<tr id='pt17.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_1</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt17.1')" >
+        pass</a>
+
+    <div id='div_pt17.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt17.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt17.1: {"code":0,"data":[],"msg":"操作成功","serverTime":1552890211,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_userhistory.MyTestCase: 我的游戏历史</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c18',1)">Detail</a></td>
+</tr>
+
+<tr id='pt18.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_1</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt18.1')" >
+        pass</a>
+
+    <div id='div_pt18.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt18.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt18.1: {"code":0,"data":[{"gameData":{"gameId":"1534129524834","title":"怪异揭示板与七重传言","desc":"以现在流行的「群聊」形式展现出来的，校园神秘恐怖故事！\n拥有各种只有智能手机才有的「群聊」独特系统，令你能用五感更加「真实」地去感受故事。\n3位登场人物最后所抵达的，「怪异」的真相究竟是什么…？\n在某所高中新闻部管理的揭示板中，隐藏着某个秘密。\n那就是所有写在揭示板上的「传言」都会「成真」，并且发展成「怪异」事件…\n写在揭示板上的「七个恐怖故事」究竟意味着什么…？\n※某些结局会出现较为猎奇的画面表现和涉及流血、残酷的文字描写。","imgSmallUrl":"http://192.168.4.124:930/wpk/0/image/417/02c/80c/417702c580c13c79c05b74f3e0ae6a5b.jpg","imgMiddleUrl":"http://192.168.4.124:930/wpk/0/image/417/02c/80c/417702c580c13c79c05b74f3e0ae6a5b.jpg","imgLargeUrl":"http://192.168.4.124:930/wpk/0/image/417/02c/80c/417702c580c13c79c05b74f3e0ae6a5b.jpg"},"userData":{"updateTime":1546939159,"playTotalTime":0,"lastPlayTime":1552106799,"chapterId":"1534412617057"}},{"gameData":{"gameId":"1533895574615","title":"艾比~交流障碍的我所选择的未来","desc":"因为某个契机而变成了交流障碍者的天才黑客少年「空井和人」。他应募了某个应用程序开发选拔赛，开始着手开发用于支援人际交流的AI。这个应用程序被选拔赛的主办单位看中，某位女性造访了他的家……\r\n以轻小说游戏的形式为大家带来的青春科幻故事！是交流障碍的主人公和有些天然的大姐姐，经历各种各样的事逐渐成长起来的故事。有笑有泪，还有硬派的科幻要素？神秘的PEACE计划是什么…？\r\n未来的理想又是什么样的…？\r\n请千万不要错过，这2+1的登场人物所选择的「未来」结局！！","imgSmallUrl":"http://192.168.4.124:930/wpk/0/image/137/c11/d9c/1379c114d9cf4058dbab824f9790ccab.jpg","imgMiddleUrl":"http://192.168.4.124:930/wpk/0/image/137/c11/d9c/1379c114d9cf4058dbab824f9790ccab.jpg","imgLargeUrl":"http://192.168.4.124:930/wpk/0/image/137/c11/d9c/1379c114d9cf4058dbab824f9790ccab.jpg"},"userData":{"updateTime":1546939192,"playTotalTime":0,"lastPlayTime":1551182923,"chapterId":"1534402457381"}},{"gameData":{"gameId":"1536817660145","title":"我的女友在被追赶","desc":"手机的另一边，你的女友正被人追赶。\n只需短短十分钟即可享受到乐趣的玩法！\n采用最流行的短信式玩法+恐怖气氛x文字冒险！\n模拟聊天软件，通过不断回复推进剧情。\n点击屏幕收取对方的回复，并通过选项来决定自己的回复。\n不同的选择，将带来不同的结局。\n全新的文字冒险体验，仿佛与真人女友交流一样，女友的命运掌握在你的手中！","imgSmallUrl":"https://xms-dev-1251001060.file.myqcloud.com/2018/12/1545987789862.jpeg","imgMiddleUrl":"https://xms-dev-1251001060.file.myqcloud.com/2018/12/1545987789862.jpeg","imgLargeUrl":"https://xms-dev-1251001060.file.myqcloud.com/2018/12/1545987789862.jpeg"},"userData":{"updateTime":1546939187,"playTotalTime":2,"lastPlayTime":1542026217,"chapterId":"1536817712210"}}],"msg":"操作成功","serverTime":1552890212,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_userinfo.MyTestCase: 个人中心</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c19',1)">Detail</a></td>
+</tr>
+
+<tr id='pt19.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_1</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt19.1')" >
+        pass</a>
+
+    <div id='div_pt19.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt19.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt19.1: {"code":0,"data":{"userId":2147483641,"nickName":"二次元","avatar":"http://abc-1253117418.cos.ap-guangzhou.myqcloud.com/ac007e80bf5d092c236d32286bba8dd553c6b322.png","bgImg":"http://abc-1253117418.cos.ap-guangzhou.myqcloud.com/ac007e80bf5d092c236d32286bba8dd553c6b322.png","desc":"迎难而上","gender":"2","location":"南山区","birthday":"1989-11-18","followingCount":"1","fansCount":"11","friendCount":"0","followStatus":true,"msgTips":{"friendTips":false,"fansTips":true,"myMsgTips":true}},"msg":"操作成功","serverTime":1552890213,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_usersign.MyTestCase: 签到</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c20',1)">Detail</a></td>
+</tr>
+
+<tr id='pt20.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_1</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt20.1')" >
+        pass</a>
+
+    <div id='div_pt20.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt20.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt20.1: {"code":0,"data":{"VCDIA":1},"msg":"操作成功","serverTime":1552890214,"sign":""}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>26</td>
+    <td>26</td>
+    <td>0</td>
+    <td>0</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>
